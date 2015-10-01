@@ -1,6 +1,7 @@
 #ifndef _BLOOM_FILTER_H_
 #define _BLOOM_FILTER_H_
 #include<fstream>
+#include<cmath>
 using namespace std;
 class BloomFilter {
 public:
