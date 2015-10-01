@@ -15,6 +15,6 @@ int main(int argc, char *argv[]) {
 	clock_t end = clock();
 	fpResult << (double)(end - begin) / CLOCKS_PER_SEC;
 	fpResult << "s" << endl;
-	fpResult << "------------------trieend---------------------- ";
+	fpResult << "------------------bfend---------------------- ";
 	return 0;
 }
