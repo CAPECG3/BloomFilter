@@ -14,9 +14,19 @@ public:
 	static unsigned int BPHash(char* str, unsigned int len);
 	static unsigned int FNVHash(char* str, unsigned int len);
 	static unsigned int APHash(char* str, unsigned int len);
-	unsigned int(*hashFamily[K])(char *str, unsigned int len) =
-	{ Hash::RSHash,Hash::JSHash,Hash::PJWHash,Hash::ELFHash,
-	Hash::BKDRHash,Hash::SDBMHash,Hash::DJBHash,Hash::DEKHash,
-	Hash::BPHash,Hash::FNVHash,Hash::APHash };
+	unsigned int(*hashFamily[K])(char *str, unsigned int len);
+	Hash() {
+		hashFamily[0] = Hash::RSHash;
+		hashFamily[1] = Hash::JSHash;
+		hashFamily[2] = Hash::PJWHash;
+		hashFamily[3] = Hash::ELFHash;
+		hashFamily[4] = Hash::BKDRHash;
+		hashFamily[5] = Hash::SDBMHash;
+		hashFamily[6] = Hash::DJBHash;
+		hashFamily[7] = Hash::DEKHash;
+		hashFamily[8] = Hash::BPHash;
+		hashFamily[9] = Hash::FNVHash;
+		hashFamily[10] = Hash::APHash;
+	}
 };
 #endif
