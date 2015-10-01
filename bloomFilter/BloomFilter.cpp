@@ -1,19 +1,23 @@
 #include"BloomFilter.h"
 #include"Hash.h"
+#include<cmath>
+#include<iostream>
 #include<cstring>
 void BloomFilter::bfAdd(unsigned int(*hashFamily[])(char *str, unsigned int len), char *x) {
 	for (int i = 0; i < K; i++) {
 		int len = strlen(x);
-		int hash=(*hashFamily[i])(x, len);
-		binary[hash%m] = true;
+		unsigned int hash=(*hashFamily[i])(x, len);
+		unsigned int index = hash%m;
+		binary[index] = true;
 	}
 }
 bool BloomFilter::bfSearch(unsigned int(*hashFamily[])(char *str, unsigned int len), char *x)
  {
 	for (int i = 0; i < K; i++) {
 		int len = strlen(x);
-		int hash=(*hashFamily[i])(x, len);
-		if (binary[hash%m] == false) {
+		unsigned int hash=(*hashFamily[i])(x, len);
+		unsigned int index = hash%m;
+		if (binary[index] == false) {
 			return false;
 		}
 	}
